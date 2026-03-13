@@ -3,19 +3,8 @@ from django.db import models
 from config.settings import AUTH_USER_MODEL
 
 
-# def datepublished(date):
-#     """
-#     Функция для преобразования даты в удобочитаемый вид
-#     :param date: "DateTimeField"
-#     :return: "DateTimeField"
-#     """
-#     return date.strftime('%d.%m.%Y')
-
-
 class Ads(models.Model):
-    """
-    Модель объявления
-    """
+    """Модель объявления"""
 
     title = models.CharField(
         max_length=100,
@@ -59,15 +48,6 @@ class Ads(models.Model):
         Строковое отображение объекта
         """
         return f'{self.title}-{self.price} руб., объявление добавлено - {self.created_at}г.'
-
-# Модель объявления должна содержать следующие поля:
-#
-# - title — название товара.
-# - price — цена товара (целое число).
-# - description — описание товара.
-# - author — пользователь, который создал объявление.
-# - created_at — время и дата создания объявления.
-# - Объявления должны быть отсортированы по дате создания (чем новее, тем выше).
 
 
 class Feedback(models.Model):

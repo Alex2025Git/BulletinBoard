@@ -47,7 +47,7 @@ class User(AbstractUser):
         verbose_name="Адрес электронной почты",
         help_text="Укажите адрес электронной почты"
     )
-    token = models.CharField(
+    token_for_password = models.CharField(
         max_length=110,
         verbose_name="Токен",
         blank=True,

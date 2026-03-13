@@ -34,14 +34,14 @@ class UserViewSet(ModelViewSet):
 
        serializer = UserResetPassword(user, data=request.data)
        if serializer.is_valid():
-           token_for_password = secrets.token_hex(16)
-           user.token = token_for_password
+           token = secrets.token_hex(16)
+           user.token_for_password = token
            user.save()
            host = request.get_host()
-           url = f"http://{host}/users/reset-password-confirm/{user.pk}/{user.token}/"
+           url = f"http://{host}/users/reset-password-confirm/{user.pk}/{user.token_for_password}/"
            send_mail(
                subject=f"Сброс пароля для {User.objects.get(email=user.email)}",
-               message=f'Для сброса пароля отправьте запрос по ссылке {url}, указав новый пароль в теле: {"new_password": "******"}',
+               message=f'Для сброса пароля отправьте запрос по ссылке {url}, указав новый пароль в теле: "new_password": "******"',
                from_email=EMAIL_HOST_USER,
                recipient_list=[user.email],
            )
