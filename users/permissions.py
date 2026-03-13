@@ -6,12 +6,8 @@ class IsOwner(BasePermission):
 
         if request.user.is_staff:
             return True
-        return request.user == obj.owner
+        return request.user == obj.author
 
-#         """
-#         if object.author == request.user:
-#             return True
-#         return False
 
 class IsAdmin(BasePermission):
     """
