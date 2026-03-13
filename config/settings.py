@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 import os
-import sys
 from datetime import timedelta
 from pathlib import Path
 
@@ -40,7 +39,6 @@ INSTALLED_APPS = [
     "django_filters",
     "rest_framework_simplejwt",
     "drf_yasg",
-    "django_celery_beat",
     "users",
     "ads",
 
@@ -143,27 +141,9 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
 }
 
-
-STRIPE_API_KEY = os.getenv("STRIPE_API_KEY")
-
 PAGE_SIZE = 4
 MAX_PAGE_SIZE = 7
 
-# Celery Configuration Options
-# CELERY_TIMEZONE = TIME_ZONE
-# CELERY_TASK_TRACK_STARTED = True
-# CELERY_TASK_TIME_LIMIT = 30 * 60
-
-# CELERY_BEAT_SCHEDULE = {
-#     "check_inactive_users": {
-#         "task": "users.tasks.check_inactive_users",  # Путь к задаче
-#         "schedule": timedelta(
-#             seconds=10
-#         ),  # Расписание выполнения задачи (например, один раз в день)
-#     },
-# }
-
-# CELERY_RESULT_BACKEND = os.getenv("CELERY_RESULT_BACKEND")
-# CELERY_BROKER_URL = os.getenv("CELERY_BROKER_URL")
-
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+
+SWAGGER_USE_COMPAT_RENDERERS = False
