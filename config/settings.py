@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "drf_yasg",
     "django_celery_beat",
     "users",
+    "ads",
 
 ]
 
@@ -144,6 +145,9 @@ SIMPLE_JWT = {
 
 
 STRIPE_API_KEY = os.getenv("STRIPE_API_KEY")
+
+PAGE_SIZE = 4
+MAX_PAGE_SIZE = 7
 
 # Celery Configuration Options
 # CELERY_TIMEZONE = TIME_ZONE
