@@ -14,11 +14,7 @@ class Ads(models.Model):
         null=True,
     )
     price = models.IntegerField(
-        verbose_name="Цена на товар",
-        help_text="Укажите цену на товар",
-        blank=True,
-        null=True,
-        default = 0
+        verbose_name="Цена на товар", help_text="Укажите цену на товар", blank=True, null=True, default=0
     )
     description = models.TextField(
         verbose_name="Описание товара",
@@ -29,14 +25,12 @@ class Ads(models.Model):
     author = models.ForeignKey(
         AUTH_USER_MODEL,
         on_delete=models.CASCADE,
-        verbose_name='Пользователь',
+        verbose_name="Пользователь",
         blank=True,
         null=True,
     )
     created_at = models.DateTimeField(
-        verbose_name="Дата создания объявления",
-        help_text="Укажите дату",
-        auto_now_add=True
+        verbose_name="Дата создания объявления", help_text="Укажите дату", auto_now_add=True
     )
 
     class Meta:
@@ -47,38 +41,26 @@ class Ads(models.Model):
         """
         Строковое отображение объекта
         """
-        return f'{self.title}-{self.price} руб., объявление добавлено - {self.created_at}г.'
+        return f"{self.title}-{self.price} руб., объявление добавлено - {self.created_at}г."
 
 
 class Feedback(models.Model):
     """
     Модель отзыва
     """
-    text = models.TextField(
-        verbose_name="Текст отзыва",
-        help_text="Оставьте свой отзыв",
-        blank=True,
-        null=True
-    )
+
+    text = models.TextField(verbose_name="Текст отзыва", help_text="Оставьте свой отзыв", blank=True, null=True)
     author = models.ForeignKey(
-        AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
-        verbose_name='Пользователь',
-        blank=True,
-        null=True
+        AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Пользователь", blank=True, null=True
     )
     ad = models.ForeignKey(
         Ads,
         on_delete=models.CASCADE,
-        verbose_name='Объявление',
+        verbose_name="Объявление",
         blank=True,
         null=True,
     )
-    created_at = models.DateTimeField(
-        verbose_name="Дата создания отзыва",
-        help_text="Укажите дату",
-        auto_now_add=True
-    )
+    created_at = models.DateTimeField(verbose_name="Дата создания отзыва", help_text="Укажите дату", auto_now_add=True)
 
     class Meta:
         verbose_name = "Отзыв"
@@ -86,4 +68,3 @@ class Feedback(models.Model):
 
     def __str__(self):
         return f"{self.ad} ({self.author}, дата отзыва - {self.created_at})"
-

@@ -1,18 +1,9 @@
 from django.urls import path
 
 from ads.apps import AdsConfig
-from ads.views import (
-    AdsCreateAPIView,
-    AdsDestroyAPIView,
-    AdsListAPIView,
-    AdsRetrieveAPIView,
-    AdsUpdateAPIView,
-    FeedbackCreateAPIView,
-    FeedbackDestroyAPIView,
-    FeedbackListAPIView,
-    FeedbackRetrieveAPIView,
-    FeedbackUpdateAPIView
-)
+from ads.views import (AdsCreateAPIView, AdsDestroyAPIView, AdsListAPIView, AdsRetrieveAPIView, AdsUpdateAPIView,
+                       FeedbackCreateAPIView, FeedbackDestroyAPIView, FeedbackListAPIView, FeedbackRetrieveAPIView,
+                       FeedbackUpdateAPIView)
 
 app_name = AdsConfig.name
 

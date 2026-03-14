@@ -15,4 +15,3 @@ def get_user_permissions(request):
         return [IsOwner()]
     if request.user.role == "admin":
         return [IsAdmin()]
-    

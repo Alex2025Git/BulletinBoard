@@ -43,17 +43,9 @@ class User(AbstractUser):
     username = None
 
     email = models.EmailField(
-        unique=True,
-        verbose_name="Адрес электронной почты",
-        help_text="Укажите адрес электронной почты"
+        unique=True, verbose_name="Адрес электронной почты", help_text="Укажите адрес электронной почты"
     )
-    token_for_password = models.CharField(
-        max_length=110,
-        verbose_name="Токен",
-        blank=True,
-        unique=True,
-        null=True
-    )
+    token_for_password = models.CharField(max_length=110, verbose_name="Токен", blank=True, unique=True, null=True)
     object = UserManager()
 
     USERNAME_FIELD = "email"
@@ -96,8 +88,7 @@ class User(AbstractUser):
         max_length=100,
         choices=CHOICES_USER_ROLE,
         default="user",
-        help_text="Укажите роль"
-        ,
+        help_text="Укажите роль",
     )
     country = models.CharField(
         max_length=50,
