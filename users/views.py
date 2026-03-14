@@ -55,7 +55,7 @@ class UserViewSet(ModelViewSet):
     def reset_password_confirm(request, pk, token):
         """Подтверждение сброса пароля"""
         try:
-            user = User.objects.get(pk=pk, token=token)
+            user = User.objects.get(pk=pk, token_for_password=token)
         except User.DoesNotExist:
             raise Http404
 

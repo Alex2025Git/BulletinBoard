@@ -9,7 +9,7 @@ class UserSerializer(ModelSerializer):
     class Meta:
         model = User
         fields = ("id", "email", "first_name", "last_name", "password", "country")
-
+        extra_kwargs = {'password': {'write_only': True}}
 
 class UserResetPassword(ModelSerializer):
     """Сериалайзер для сброса пароля"""
