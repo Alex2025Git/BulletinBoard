@@ -1,11 +1,9 @@
-from rest_framework.generics import (CreateAPIView, DestroyAPIView,
-                                     ListAPIView, RetrieveAPIView,
-                                     UpdateAPIView)
+from rest_framework.generics import CreateAPIView, DestroyAPIView, ListAPIView, RetrieveAPIView, UpdateAPIView
 from rest_framework.permissions import AllowAny
 
 from ads.models import Ads, Feedback
 from ads.paginators import CustomPagination
-from ads.serializers import (AdsDetailSerializer, AdsSerializer, FeedbackDetailSerializer, FeedbackSerializer)
+from ads.serializers import AdsDetailSerializer, AdsSerializer, FeedbackDetailSerializer, FeedbackSerializer
 from ads.services import get_user_permissions
 
 
@@ -31,7 +29,10 @@ class AdsListAPIView(ListAPIView):
     queryset = Ads.objects.all()
     serializer_class = AdsSerializer
     permission_classes = (AllowAny,)
-    filterset_fields = ("title", "author",)
+    filterset_fields = (
+        "title",
+        "author",
+    )
     pagination_class = CustomPagination
 
 
